@@ -1,6 +1,7 @@
 package com.devsuperior.dsmeta.dto;
 
 import com.devsuperior.dsmeta.entities.Sale;
+import com.devsuperior.dsmeta.projections.SalesSummaryProjection;
 
 import java.time.LocalDate;
 
@@ -15,9 +16,9 @@ public class SalesSummarytDTO {
 
 	}
 
-	public SalesSummarytDTO(Sale entity) {
-		seller = entity.getSeller().getName();
-		amount = entity.getAmount();
+	public SalesSummarytDTO(SalesSummaryProjection projection) {
+		seller = projection.getName();
+		amount = projection.getTotal();
 	}
 
 	public Double getAmount() {

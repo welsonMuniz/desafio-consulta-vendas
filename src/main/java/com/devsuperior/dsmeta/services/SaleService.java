@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.devsuperior.dsmeta.dto.SalesReportDTO;
 import com.devsuperior.dsmeta.dto.SalesSummarytDTO;
+import com.devsuperior.dsmeta.projections.SalesSummaryProjection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,7 +57,7 @@ public class SaleService {
 		return result;
 	}
 
-	public Page<SalesSummarytDTO> getSummaryBySeller(
+	public Page<SalesSummaryProjection> getSummaryBySeller(
 			String minDate,
 			String maxDate,
 			Pageable pageable){
@@ -75,7 +76,7 @@ public class SaleService {
 			startPeriod = LocalDate.parse(minDate);
 		}
 
-		 Page<SalesSummarytDTO> result = repository.summaryByDate(
+		 Page<SalesSummaryProjection> result = repository.summaryByDate(
 				startPeriod,
 				endPeriod,
 				pageable);
