@@ -11,7 +11,6 @@ public class SalesReportDTO {
 	private Double amount;
 	private String seller;
 
-
 	public SalesReportDTO(Long id, LocalDate date, Double amount, String seller) {
 		this.id = id;
 		this.date = date;
@@ -25,8 +24,6 @@ public class SalesReportDTO {
 		amount = entity.getAmount();
 		seller = entity.getSeller().getName();
 	}
-
-
 
 	public Long getId() {
 		return id;
